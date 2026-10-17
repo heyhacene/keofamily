@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planche d'Idées Logo - Keo Family</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: #070a10;
+      color: #f1f5f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      min-height: 100vh;
+      padding: 40px 20px 80px;
+    }
+    .header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(249, 115, 22, 0.15);
+      border: 1px solid rgba(249, 115, 22, 0.35);
+      color: #fb923c;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 9999px;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #ffffff 30%, #fdba74 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.subtitle {
+      color: #94a3b8;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 32px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #0d131f;
+      border: 1px solid #1e293b;
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: #f97316;
+      box-shadow: 0 20px 40px -15px rgba(249, 115, 22, 0.25);
+    }
+    .card-number {
+      position: absolute;
+      top: 18px;
+      left: 20px;
+      font-size: 12px;
+      font-weight: 800;
+      color: #64748b;
+      letter-spacing: 1px;
+    }
+    .preview {
+      width: 160px;
+      height: 160px;
+      margin: 20px 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,0.4));
+    }
+    .preview svg {
+      width: 100%;
+      height: 100%;
+    }
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+    .card-concept {
+      font-size: 14px;
+      color: #fb923c;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      color: #94a3b8;
+      line-height: 1.55;
+    }
+    .colors {
+      display: flex;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="badge">Keo Suite • Identité de Marque</div>
+    <h1>Planche Créative : Keo Family</h1>
+    <p class="subtitle">
+      4 explorations du monogramme <strong>« K »</strong> déclinées pour l'organisation familiale, la maison, le partage et les moments précieux.
+    </p>
+  </div>
+
+  <div class="grid">
+
+    <!-- Concept 1 : Le K Foyer & Toit -->
+    <div class="card">
+      <div class="card-number">OPTION 01</div>
+      <div class="preview">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fb923c"/>
+              <stop offset="50%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#181e2b"/>
+              <stop offset="100%" stop-color="#0a0e17"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="200" rx="48" fill="url(#bg1)" stroke="#334155" stroke-width="2"/>
+          <g transform="translate(15, 15) scale(0.85)">
+            <!-- Colonne K -->
+            <rect x="40" y="35" width="24" height="130" rx="12" fill="url(#g1)"/>
+            <!-- Branche supérieure façon Toit de Maison -->
+            <path d="M 68 100 L 125 45 C 131 39 141 39 147 45 C 153 51 153 61 147 67 L 95 116 Z" fill="url(#g1)"/>
+            <!-- Branche inférieure socle accueillant -->
+            <path d="M 85 106 L 142 153 C 148 158 149 168 144 174 C 139 180 129 181 123 176 L 68 126 Z" fill="url(#g1)"/>
+            <!-- Cheminée / Point foyer -->
+            <circle cx="106" cy="106" r="6" fill="#fef08a"/>
+          </g>
+        </svg>
+      </div>
+      <h2 class="card-title">Le K Foyer (Maison & Toit)</h2>
+      <div class="card-concept">Héritage « Dar » & Sécurité du foyer</div>
+      <p class="card-desc">
+        La branche supérieure du K s'élève et s'incline pour former l'avancée d'un toit protecteur au-dessus de la famille, rappelant le dôme original de Dar.
+      </p>
+      <div class="colors">
+        <div class="dot" style="background: #fb923c;"></div>
+        <div class="dot" style="background: #f97316;"></div>
+        <div class="dot" style="background: #ea580c;"></div>
+      </div>
+    </div>
+
+    <!-- Concept 2 : Le K Étreinte & Harmonie -->
+    <div class="card">
+      <div class="card-number">OPTION 02</div>
+      <div class="preview">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fdba74"/>
+              <stop offset="40%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#f43f5e"/>
+            </linearGradient>
+            <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#181e2b"/>
+              <stop offset="100%" stop-color="#0a0e17"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="200" rx="48" fill="url(#bg2)" stroke="#334155" stroke-width="2"/>
+          <g transform="translate(18, 15) scale(0.82)">
+            <!-- Colonne K adoucie -->
+            <rect x="42" y="35" width="22" height="130" rx="11" fill="url(#g2)"/>
+            <!-- Boucles fluides enlacées (Parent et enfant / Partenaires) -->
+            <path d="M 64 96 C 90 60 145 40 145 75 C 145 95 110 102 85 108" fill="none" stroke="url(#g2)" stroke-width="22" stroke-linecap="round"/>
+            <path d="M 80 105 C 110 115 150 120 150 145 C 150 170 105 165 64 125" fill="none" stroke="url(#g2)" stroke-width="22" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+      <h2 class="card-title">Le K Étreinte (Union & Liens)</h2>
+      <div class="card-concept">Douceur, Bienveillance & Écoute</div>
+      <p class="card-desc">
+        Des rubans continus et harmonieux qui s'enlacent pour dessiner le K, évoquant deux bras qui se serrent ou les liens indéfectibles d'une famille.
+      </p>
+      <div class="colors">
+        <div class="dot" style="background: #fdba74;"></div>
+        <div class="dot" style="background: #f97316;"></div>
+        <div class="dot" style="background: #f43f5e;"></div>
+      </div>
+    </div>
+
+    <!-- Concept 3 : Le K Cœur Prismatique -->
+    <div class="card">
+      <div class="card-number">OPTION 03</div>
+      <div class="preview">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="g3a" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#e11d48"/>
+            </linearGradient>
+            <linearGradient id="g3b" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#fb7185"/>
+            </linearGradient>
+            <linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#181e2b"/>
+              <stop offset="100%" stop-color="#0a0e17"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="200" rx="48" fill="url(#bg3)" stroke="#334155" stroke-width="2"/>
+          <g transform="translate(18, 15) scale(0.82)">
+            <!-- Colonne K facettée -->
+            <rect x="42" y="35" width="22" height="130" rx="11" fill="url(#g3a)"/>
+            <!-- Branche supérieure formant le haut d'un coeur -->
+            <path d="M 64 98 L 126 40 C 142 24 162 44 148 60 L 98 108 Z" fill="url(#g3b)"/>
+            <!-- Branche inférieure complétant la pointe du coeur -->
+            <path d="M 64 102 L 136 168 C 148 180 166 164 154 150 L 98 96 Z" fill="url(#g3a)"/>
+          </g>
+        </svg>
+      </div>
+      <h2 class="card-title">Le K Cœur (Amour & Tribu)</h2>
+      <div class="card-concept">Affection, Générosité & Émotion</div>
+      <p class="card-desc">
+        Les deux branches diagonales du K adoptent la courbure et la silhouette subtile d'un demi-cœur stylisé en facettes géométriques lumineuses.
+      </p>
+      <div class="colors">
+        <div class="dot" style="background: #f59e0b;"></div>
+        <div class="dot" style="background: #f97316;"></div>
+        <div class="dot" style="background: #e11d48;"></div>
+      </div>
+    </div>
+
+    <!-- Concept 4 : Le K Constellation & Agenda -->
+    <div class="card">
+      <div class="card-number">OPTION 04</div>
+      <div class="preview">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="g4" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="60%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+            <linearGradient id="bg4" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#181e2b"/>
+              <stop offset="100%" stop-color="#0a0e17"/>
+            </linearGradient>
+          </defs>
+          <rect width="200" height="200" rx="48" fill="url(#bg4)" stroke="#334155" stroke-width="2"/>
+          <g transform="translate(18, 15) scale(0.82)">
+            <!-- Colonne K avec ligne de temps -->
+            <line x1="52" y1="42" x2="52" y2="158" stroke="url(#g4)" stroke-width="20" stroke-linecap="round"/>
+            <!-- Branches diagonales reliées par des pastilles rdv -->
+            <line x1="62" y1="100" x2="135" y2="48" stroke="url(#g4)" stroke-width="18" stroke-linecap="round"/>
+            <line x1="62" y1="100" x2="135" y2="152" stroke="url(#g4)" stroke-width="18" stroke-linecap="round"/>
+            <!-- Pastilles d'événements familiaux synchronisés -->
+            <circle cx="135" cy="48" r="14" fill="#ffffff" stroke="#f97316" stroke-width="6"/>
+            <circle cx="135" cy="152" r="14" fill="#ffffff" stroke="#f97316" stroke-width="6"/>
+            <circle cx="52" cy="100" r="14" fill="#fbbf24"/>
+          </g>
+        </svg>
+      </div>
+      <h2 class="card-title">Le K Constellation (Agenda & Tribu)</h2>
+      <div class="card-concept">Organisation, Partage & Planning</div>
+      <p class="card-desc">
+        La colonne du K incarne la ligne du temps, tandis que ses branches relient les membres de la famille autour de rendez-vous et d'événements synchronisés.
+      </p>
+      <div class="colors">
+        <div class="dot" style="background: #fbbf24;"></div>
+        <div class="dot" style="background: #f97316;"></div>
+        <div class="dot" style="background: #ea580c;"></div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+import { AppData, Recipe } from '@/types';
+
+export const initialRecipes: Recipe[] = [
+  {
+    id: 'rec_1',
+    title: 'Pâtes Carbonara Traditionnelles',
+    category: 'plat',
+    defaultServings: 4,
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 15,
+    imageUrl: 'https://images.unsplash.com/photo-1612874742237-6526221588e3?w=800&auto=format&fit=crop&q=60',
+    ingredients: [
+      { id: 'ing_1', name: 'Spaghetti', quantity: 400, unit: 'g', category: 'epicerie' },
+      { id: 'ing_2', name: 'Guanciale ou Lardons', quantity: 200, unit: 'g', category: 'viandes_poissons' },
+      { id: 'ing_3', name: 'Œufs frais', quantity: 4, unit: 'pièce(s)', category: 'frais_cremerie' },
+      { id: 'ing_4', name: 'Pecorino ou Parmesan râpé', quantity: 80, unit: 'g', category: 'frais_cremerie' },
+      { id: 'ing_5', name: 'Poivre noir moulu', quantity: 1, unit: 'c. à café', category: 'epicerie' },
+    ],
+    steps: [
+      'Faire bouillir une grande marmite d’eau salée et plonger les spaghetti.',
+      'Faire dorer le guanciale ou les lardons à la poêle sans ajouter de matière grasse.',
+      'Dans un bol, battre les jaunes d’œufs avec le pecorino râpé et beaucoup de poivre.',
+      'Égoutter les pâtes al dente en gardant une tasse d’eau de cuisson.',
+      'Mélanger les pâtes chaudes avec la viande hors du feu, puis verser le mélange d’œufs avec un filet d’eau de cuisson pour créer une sauce crémeuse.',
+    ],
+    notes: 'Pas de crème fraîche dans la vraie carbonara !',
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'rec_2',
+    title: 'Curry Doux de Poulet & Légumes',
+    category: 'plat',
+    defaultServings: 4,
+    prepTimeMinutes: 15,
+    cookTimeMinutes: 25,
+    imageUrl: 'https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?w=800&auto=format&fit=crop&q=60',
+    ingredients: [
+      { id: 'ing_6', name: 'Blancs de poulet', quantity: 500, unit: 'g', category: 'viandes_poissons' },
+      { id: 'ing_7', name: 'Lait de coco', quantity: 400, unit: 'ml', category: 'epicerie' },
+      { id: 'ing_8', name: 'Courgettes', quantity: 2, unit: 'pièce(s)', category: 'fruits_legumes' },
+      { id: 'ing_9', name: 'Carottes', quantity: 3, unit: 'pièce(s)', category: 'fruits_legumes' },
+      { id: 'ing_10', name: 'Pâte de curry doux', quantity: 2, unit: 'c. à soupe', category: 'epicerie' },
+      { id: 'ing_11', name: 'Riz Basmati', quantity: 300, unit: 'g', category: 'epicerie' },
+    ],
+    steps: [
+      'Couper le poulet et les légumes en morceaux.',
+      'Faire revenir le poulet dans un filet d’huile d’olive pendant 5 min.',
+      'Ajouter les légumes et la pâte de curry, faire revenir 2 min.',
+      'Verser le lait de coco, couvrir et laisser mijoter 20 min à feu doux.',
+      'Servir bien chaud avec le riz cuit à la vapeur.',
+    ],
+    updatedAt: new Date().toISOString(),
+  },
+  {
+    id: 'rec_3',
+    title: 'Tarte Fine aux Tomates & Moutarde',
+    category: 'rapide',
+    defaultServings: 4,
+    prepTimeMinutes: 10,
+    cookTimeMinutes: 30,
+    imageUrl: 'https://images.unsplash.com/photo-1590947132387-155cc02f3212?w=800&auto=format&fit=crop&q=60',
+    ingredients: [
+      { id: 'ing_12', name: 'Pâte feuilletée pur beurre', quantity: 1, unit: 'rouleau', category: 'frais_cremerie' },
+      { id: 'ing_13', name: 'Tomates mûres', quantity: 4, unit: 'pièce(s)', category: 'fruits_legumes' },
+      { id: 'ing_14', name: 'Moutarde de Dijon', quantity: 2, unit: 'c. à soupe', category: 'epicerie' },
+      { id: 'ing_15', name: 'Gruyère râpé', quantity: 100, unit: 'g', category: 'frais_cremerie' },
+      { id: 'ing_16', name: 'Herbes de Provence', quantity: 1, unit: 'c. à soupe', category: 'epicerie' },
+    ],
+    steps: [
+      'Préchauffer le four à 200°C.',
+      'Dérouler la pâte feuilletée sur une plaque de cuisson et piquer le fond avec une fourchette.',
+      'Tartiner généreusement le fond de moutarde, puis parsemer d’un peu de fromage.',
+      'Disposer les rondelles de tomates en rosace, saler, poivrer et saupoudrer d’herbes.',
+      'Enfourner pour 25 à 30 minutes jusqu’à ce que la pâte soit bien dorée et croustillante.',
+    ],
+    updatedAt: new Date().toISOString(),
+  },
+];
+
+export const initialAppData: AppData = {
+  recipes: initialRecipes,
+  weeklyPlan: {},
+  customShoppingItems: [],
+  checkedItems: {},
+};

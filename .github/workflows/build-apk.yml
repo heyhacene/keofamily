@@ -1,0 +1,123 @@
+name: Build Android APK
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Keo Family Standalone APK
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: 21
+
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build static web export
+        env:
+          NEXT_PUBLIC_BUILD_NUMBER: ${{ github.run_number }}
+        run: npm run build
+
+      - name: Sync Capacitor Android
+        run: npx cap sync android
+
+      - name: Fix line endings and make gradlew executable
+        run: |
+          sed -i 's/\r$//' ./android/gradlew
+          chmod +x ./android/gradlew
+
+      - name: Build and Sign Android APK
+        working-directory: ./android
+        run: |
+          mkdir -p ../build-output
+          ./gradlew assembleRelease --stacktrace
+
+          KEYSTORE_FILE="keofamily-release.keystore"
+          if [ ! -f "$KEYSTORE_FILE" ]; then
+            keytool -genkeypair -v \
+              -keystore "$KEYSTORE_FILE" \
+              -alias keofamily \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -storepass keofamily2026 \
+              -keypass keofamily2026 \
+              -dname "CN=Keo Family, OU=Keo, O=Keo, L=Paris, ST=IDF, C=FR"
+          fi
+
+          APKSIGNER=$(find $ANDROID_SDK_ROOT/build-tools $ANDROID_HOME/build-tools /usr/local/lib/android/sdk/build-tools -name apksigner 2>/dev/null | sort -V | tail -n 1)
+          UNSIGNED_APK="app/build/outputs/apk/release/app-release-unsigned.apk"
+          if [ ! -f "$UNSIGNED_APK" ]; then
+            UNSIGNED_APK=$(find app/build/outputs/apk/release -name "*.apk" | head -n 1)
+          fi
+
+          ZIPALIGN=$(find $ANDROID_SDK_ROOT/build-tools $ANDROID_HOME/build-tools /usr/local/lib/android/sdk/build-tools -name zipalign 2>/dev/null | sort -V | tail -n 1)
+          if [ -n "$ZIPALIGN" ] && ! $ZIPALIGN -c 4 "$UNSIGNED_APK"; then
+            $ZIPALIGN -p -f 4 "$UNSIGNED_APK" aligned.apk
+            UNSIGNED_APK="aligned.apk"
+          fi
+
+          $APKSIGNER sign \
+            --ks "$KEYSTORE_FILE" \
+            --ks-key-alias keofamily \
+            --ks-pass "pass:keofamily2026" \
+            --key-pass "pass:keofamily2026" \
+            --v1-signing-enabled true \
+            --v2-signing-enabled true \
+            --v3-signing-enabled true \
+            --out ../build-output/KeoFamily.apk \
+            "$UNSIGNED_APK"
+
+          $APKSIGNER verify --verbose ../build-output/KeoFamily.apk
+          rm -f "$KEYSTORE_FILE" aligned.apk
+          cp ../build-output/KeoFamily.apk "../build-output/KeoFamily-Build-${{ github.run_number }}.apk"
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: KeoFamily-Android-APK
+          path: |
+            build-output/KeoFamily.apk
+            build-output/KeoFamily-Build-${{ github.run_number }}.apk
+          retention-days: 30
+
+      - name: Publish APK to GitHub Releases
+        uses: softprops/action-gh-release@v2
+        if: github.ref == 'refs/heads/main'
+        with:
+          tag_name: v1.0.0-build.${{ github.run_number }}
+          name: "Keo Family v1.0.0 (Build ${{ github.run_number }})"
+          body: |
+            Cliquez sur **KeoFamily-Build-${{ github.run_number }}.apk** ci-dessous pour télécharger et installer l'application autonome **Keo Family** sur votre smartphone Android.
+            - Fichier : **KeoFamily-Build-${{ github.run_number }}.apk**
+            - Version : v1.0.0 (Build ${{ github.run_number }})
+            - 100% autonome : agenda familial, listes de courses & tâches, menus de la semaine, carnet de recettes, coffre de documents et suivi médical
+          files: |
+            build-output/KeoFamily.apk
+            build-output/KeoFamily-Build-${{ github.run_number }}.apk
+          make_latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

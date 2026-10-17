@@ -1,0 +1,20 @@
+node_modules
+.next
+out
+.env*.local
+.DS_Store
+*.log
+.vercel
+.env*
+*.tsbuildinfo
+
+# Android build outputs
+android/.gradle
+android/build
+android/app/build
+android/.idea
+*.apk
+*.aab
+build-output
+podclean
+kaster
